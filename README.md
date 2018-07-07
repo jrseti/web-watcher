@@ -1,18 +1,19 @@
 # web-watcher
 Watches a set of directory for changes, then sends a  socket.io event to a webpage that things have changed. Then the page can act accordingly, such as reload itself. This is VERY useful then developing the site. make a CSS change and immediately your page refreshes.
 
-To install the necessary modules:
+## To install the necessary modules:
 
   npm install
 
-To invoke:
+## To invoke:
 
   node watch.js
 
-Customization:
+## Customization:
 
 You can add any number of directories to watch. The provided watch.js has several examples:
 
+```
 var watcher_www = fs.watch("/fullpath_to_dir_to_watch");
 watcher_www.on('change', function name(event, filename) {
         if(filename.includes(".swp")) return;
@@ -21,16 +22,17 @@ watcher_www.on('change', function name(event, filename) {
         console.log(filename);
         emitMessage("changed");
         });
+```
 
 
-HTML/Javascript
+## HTML/Javascript
 
 In your HTML file you need:
 
 <script src="http://yourwebsiteURL/socket.io/socket.io.js"></script>
 
-In your JS add:
-
+## In your JS add:
+```
 $(document).ready(function() {
 
     connect();
@@ -53,9 +55,11 @@ function connect()
             //location.reload();
             });
 }
+```
 
-In your nginx config file:
+## In your nginx config file:
 
+```
 location /socket.io/ {
 
     proxy_set_header Upgrade $http_upgrade;
@@ -71,4 +75,5 @@ location /socket.io/ {
     proxy_read_timeout  86400s;
 
 }
+```
 

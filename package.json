@@ -1,0 +1,26 @@
+{
+  "name": "web-watcher",
+  "version": "0.0.1",
+  "description": "Watches my files and notifies a browser to reload.",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^2.1.1"
+  },
+  "main": "watch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrseti/web-watcher.git"
+  },
+  "keywords": [
+    "webtool"
+  ],
+  "author": "Jon Richards",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrseti/web-watcher/issues"
+  },
+  "homepage": "https://github.com/jrseti/web-watcher#readme"
+}

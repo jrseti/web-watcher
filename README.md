@@ -1,5 +1,9 @@
 # web-watcher
-Watches a set of directory for changes, then sends a  socket.io event to a webpage that things have changed. Then the page can act accordingly, such as reload itself. This is VERY useful then developing the site. make a CSS change and immediately your page refreshes.
+Watches a set of directory for changes, then sends a  socket.io event to a webpage that things have changed. Then the page can act accordingly, such as reload itself. This is VERY useful then developing the site. Make a CSS change and immediately your page refreshes.
+
+I developed this because I have been using VIM to create all the content for my website, including CSS and Javascript. It was getting tedious saving my file, then manually reloading in the browser after changes. And then there were always weird browser caching issues where the browser would no longer load a fresh version of the HTML. I was spending too much time going back and forth.
+
+The best use for this is to watch the directory containing the CSS files. You know how it takes some tweaking to get webpage elements to go into exactly the correct place? You can easily iterate changes and see them immediatly when the page automatically refreshes.
 
 ## To install the necessary modules:
 
@@ -50,9 +54,9 @@ function connect()
 
 
     socket.on('message', function(msg){
-            //location.reload();
-            window.location = "http://antfeeds.setiquest.info/up.html?" + Math.random();
-            //location.reload();
+            //Reload this page (or whatever you want). The ?... forces a reload
+            // getting past your browser cache.
+            window.location = "http://yourwebsiteURL/index.html?" + Math.random();
             });
 }
 ```
